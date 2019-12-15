@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		0CE7EA2623A6795F00B33EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2523A6795F00B33EB6 /* AppDelegate.swift */; };
 		0CE7EA2823A6795F00B33EB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2723A6795F00B33EB6 /* SceneDelegate.swift */; };
-		0CE7EA2A23A6795F00B33EB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2923A6795F00B33EB6 /* ViewController.swift */; };
+		0CE7EA2A23A6795F00B33EB6 /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2923A6795F00B33EB6 /* PlayerListViewController.swift */; };
 		0CE7EA2D23A6795F00B33EB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2B23A6795F00B33EB6 /* Main.storyboard */; };
 		0CE7EA2F23A6796100B33EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2E23A6796100B33EB6 /* Assets.xcassets */; };
 		0CE7EA3223A6796100B33EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7EA3023A6796100B33EB6 /* LaunchScreen.storyboard */; };
+		BAA1574AF26138F4E9B81610 /* libPods-hockey.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0009AA5127087C7BFB34BB56 /* libPods-hockey.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0009AA5127087C7BFB34BB56 /* libPods-hockey.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hockey.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE7EA2223A6795F00B33EB6 /* hockey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hockey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE7EA2523A6795F00B33EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CE7EA2723A6795F00B33EB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0CE7EA2923A6795F00B33EB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0CE7EA2923A6795F00B33EB6 /* PlayerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListViewController.swift; sourceTree = "<group>"; };
 		0CE7EA2C23A6795F00B33EB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0CE7EA2E23A6796100B33EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CE7EA3123A6796100B33EB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CE7EA3323A6796100B33EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7484D441774820992A8395A6 /* Pods-hockey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hockey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hockey/Pods-hockey.debug.xcconfig"; sourceTree = "<group>"; };
+		90AF09BB95C72E634508301D /* Pods-hockey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hockey.release.xcconfig"; path = "Pods/Target Support Files/Pods-hockey/Pods-hockey.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA1574AF26138F4E9B81610 /* libPods-hockey.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				0CE7EA2423A6795F00B33EB6 /* hockey */,
 				0CE7EA2323A6795F00B33EB6 /* Products */,
+				50DA98CC01523FA51E786666 /* Pods */,
+				34E479D58C045580705271DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +65,30 @@
 			children = (
 				0CE7EA2523A6795F00B33EB6 /* AppDelegate.swift */,
 				0CE7EA2723A6795F00B33EB6 /* SceneDelegate.swift */,
-				0CE7EA2923A6795F00B33EB6 /* ViewController.swift */,
+				0CE7EA2923A6795F00B33EB6 /* PlayerListViewController.swift */,
 				0CE7EA2B23A6795F00B33EB6 /* Main.storyboard */,
 				0CE7EA2E23A6796100B33EB6 /* Assets.xcassets */,
 				0CE7EA3023A6796100B33EB6 /* LaunchScreen.storyboard */,
 				0CE7EA3323A6796100B33EB6 /* Info.plist */,
 			);
 			path = hockey;
+			sourceTree = "<group>";
+		};
+		34E479D58C045580705271DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0009AA5127087C7BFB34BB56 /* libPods-hockey.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50DA98CC01523FA51E786666 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7484D441774820992A8395A6 /* Pods-hockey.debug.xcconfig */,
+				90AF09BB95C72E634508301D /* Pods-hockey.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +98,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0CE7EA3623A6796100B33EB6 /* Build configuration list for PBXNativeTarget "hockey" */;
 			buildPhases = (
+				52BC0FF9380F3D7EBA1A75B6 /* [CP] Check Pods Manifest.lock */,
 				0CE7EA1E23A6795F00B33EB6 /* Sources */,
 				0CE7EA1F23A6795F00B33EB6 /* Frameworks */,
 				0CE7EA2023A6795F00B33EB6 /* Resources */,
@@ -133,12 +158,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52BC0FF9380F3D7EBA1A75B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-hockey-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0CE7EA1E23A6795F00B33EB6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CE7EA2A23A6795F00B33EB6 /* ViewController.swift in Sources */,
+				0CE7EA2A23A6795F00B33EB6 /* PlayerListViewController.swift in Sources */,
 				0CE7EA2623A6795F00B33EB6 /* AppDelegate.swift in Sources */,
 				0CE7EA2823A6795F00B33EB6 /* SceneDelegate.swift in Sources */,
 			);
@@ -282,11 +332,13 @@
 		};
 		0CE7EA3723A6796100B33EB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7484D441774820992A8395A6 /* Pods-hockey.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ64Y9853R;
 				INFOPLIST_FILE = hockey/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,17 +346,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sultani.hockey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		0CE7EA3823A6796100B33EB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90AF09BB95C72E634508301D /* Pods-hockey.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ64Y9853R;
 				INFOPLIST_FILE = hockey/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +366,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sultani.hockey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
