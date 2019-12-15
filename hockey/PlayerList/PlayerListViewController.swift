@@ -10,11 +10,11 @@ import UIKit
 
 class PlayerListViewController: UIViewController {
 
+	
+	// MARK: - Properties
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 	}
-
-
 }
-
