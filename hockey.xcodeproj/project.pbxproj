@@ -10,6 +10,9 @@
 		0C0531CA23A67E9A00D299F0 /* PlayerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0531C823A67E9A00D299F0 /* PlayerListCell.swift */; };
 		0C0531CB23A67E9A00D299F0 /* PlayerListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C0531C923A67E9A00D299F0 /* PlayerListCell.xib */; };
 		0C0531CE23A67ECC00D299F0 /* PlayerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0531CD23A67ECC00D299F0 /* PlayerListViewModel.swift */; };
+		0C0531D223A6D44F00D299F0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0531D123A6D44F00D299F0 /* Player.swift */; };
+		0C0531D523A6DB7B00D299F0 /* PlayerListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0531D423A6DB7B00D299F0 /* PlayerListDataSource.swift */; };
+		0C0531D723A84C6700D299F0 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0531D623A84C6700D299F0 /* Team.swift */; };
 		0CE7EA2623A6795F00B33EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2523A6795F00B33EB6 /* AppDelegate.swift */; };
 		0CE7EA2823A6795F00B33EB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2723A6795F00B33EB6 /* SceneDelegate.swift */; };
 		0CE7EA2A23A6795F00B33EB6 /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2923A6795F00B33EB6 /* PlayerListViewController.swift */; };
@@ -24,6 +27,9 @@
 		0C0531C823A67E9A00D299F0 /* PlayerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListCell.swift; sourceTree = "<group>"; };
 		0C0531C923A67E9A00D299F0 /* PlayerListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerListCell.xib; sourceTree = "<group>"; };
 		0C0531CD23A67ECC00D299F0 /* PlayerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListViewModel.swift; sourceTree = "<group>"; };
+		0C0531D123A6D44F00D299F0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0C0531D423A6DB7B00D299F0 /* PlayerListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListDataSource.swift; sourceTree = "<group>"; };
+		0C0531D623A84C6700D299F0 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		0CE7EA2223A6795F00B33EB6 /* hockey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hockey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE7EA2523A6795F00B33EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CE7EA2723A6795F00B33EB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +59,7 @@
 			children = (
 				0CE7EA2923A6795F00B33EB6 /* PlayerListViewController.swift */,
 				0C0531CD23A67ECC00D299F0 /* PlayerListViewModel.swift */,
+				0C0531D423A6DB7B00D299F0 /* PlayerListDataSource.swift */,
 				0C0531CC23A67E9E00D299F0 /* Cell */,
 			);
 			path = PlayerList;
@@ -65,6 +72,15 @@
 				0C0531C923A67E9A00D299F0 /* PlayerListCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		0C0531D323A6D45200D299F0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0C0531D123A6D44F00D299F0 /* Player.swift */,
+				0C0531D623A84C6700D299F0 /* Team.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		0CE7EA1923A6795F00B33EB6 = {
@@ -91,6 +107,7 @@
 				0CE7EA2523A6795F00B33EB6 /* AppDelegate.swift */,
 				0CE7EA2723A6795F00B33EB6 /* SceneDelegate.swift */,
 				0CE7EA2B23A6795F00B33EB6 /* Main.storyboard */,
+				0C0531D323A6D45200D299F0 /* Models */,
 				0C0531C723A67E5D00D299F0 /* PlayerList */,
 				0CE7EA2E23A6796100B33EB6 /* Assets.xcassets */,
 				0CE7EA3023A6796100B33EB6 /* LaunchScreen.storyboard */,
@@ -218,6 +235,9 @@
 				0CE7EA2A23A6795F00B33EB6 /* PlayerListViewController.swift in Sources */,
 				0CE7EA2623A6795F00B33EB6 /* AppDelegate.swift in Sources */,
 				0CE7EA2823A6795F00B33EB6 /* SceneDelegate.swift in Sources */,
+				0C0531D723A84C6700D299F0 /* Team.swift in Sources */,
+				0C0531D223A6D44F00D299F0 /* Player.swift in Sources */,
+				0C0531D523A6DB7B00D299F0 /* PlayerListDataSource.swift in Sources */,
 				0C0531CE23A67ECC00D299F0 /* PlayerListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

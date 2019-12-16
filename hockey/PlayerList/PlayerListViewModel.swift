@@ -10,7 +10,12 @@ import Foundation
 
 class PlayerListViewModel {
 	
+	// MARK: - Properties
+	var team: Team!
 	
+	init(team: Team) {
+		self.team = team
+	}
 	
 	
 	
