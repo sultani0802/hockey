@@ -7,6 +7,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="xeL-V4-r7E">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" id="5lh-e7-7qS" customClass="MenuViewController" customModule="hockey" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5xp-Vg-kjc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pjc-o8-5BA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pjc-o8-5BA" firstAttribute="top" secondItem="jRw-vm-RQw" secondAttribute="top" id="KOg-y6-AyD"/>
+                            <constraint firstAttribute="bottom" secondItem="pjc-o8-5BA" secondAttribute="bottom" id="NJ4-Fa-wIi"/>
+                            <constraint firstItem="pjc-o8-5BA" firstAttribute="leading" secondItem="jRw-vm-RQw" secondAttribute="leading" id="Oxs-Kh-YlT"/>
+                            <constraint firstItem="pjc-o8-5BA" firstAttribute="trailing" secondItem="jRw-vm-RQw" secondAttribute="trailing" id="xvV-XF-pTU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jRw-vm-RQw"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="pjc-o8-5BA" id="KO9-5D-ODG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EqI-QO-yx8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="-523.66071428571422"/>
+        </scene>
         <!--Team Name-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -34,10 +64,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Team Name" id="89S-Vm-7PM"/>
+                    <navigationItem key="navigationItem" title="Team Name" id="89S-Vm-7PM">
+                        <barButtonItem key="leftBarButtonItem" title="Teams" id="nW5-PL-cBP">
+                            <connections>
+                                <action selector="teamsPressed:" destination="BYZ-38-t0r" id="HLI-Y7-pr9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="TSs-ZD-NaA" id="zJa-QR-t01"/>
                         <outlet property="tableView" destination="bFm-4U-Uj1" id="in2-Y8-0AJ"/>
+                        <outlet property="teamsBarButtonItem" destination="nW5-PL-cBP" id="dK1-J6-ISK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
