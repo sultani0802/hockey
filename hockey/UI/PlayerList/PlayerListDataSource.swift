@@ -19,11 +19,6 @@ class PlayerListDataSource: NSObject {
 	
 	init(delegate: PlayerListDataSourceDelegate) {
 		self.delegate = delegate
-		
-		data.append(Player(name: "Player 1", number: 12, position: "CR", imagePath: nil, country: nil))
-		data.append(Player(name: "Player 2", number: 12, position: "CR", imagePath: nil, country: nil))
-		data.append(Player(name: "Player 3", number: 12, position: "CR", imagePath: nil, country: nil))
-		data.append(Player(name: "Player 4", number: 12, position: "CR", imagePath: nil, country: nil))
 	}
 }
 
@@ -41,9 +36,9 @@ extension PlayerListDataSource: UITableViewDataSource {
 		
 		let player = data[indexPath.row]
 		
-		cell.playerNameLabel.text = player.name
-		cell.playerNumberLabel.text = String(player.number)
-		cell.playerPositionLabel.text = player.position
+		cell.playerNameLabel.text = player.person.fullName
+		cell.playerNumberLabel.text = player.jerseyNumber
+		cell.playerPositionLabel.text = player.position.abbreviation
 		
 		return cell
 	}

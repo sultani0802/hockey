@@ -18,7 +18,7 @@ class PlayerListViewController: UIViewController {
 	
 	
 	// MARK: - Properties
-	private let viewModel: PlayerListViewModel = PlayerListViewModel(team: Team(name: "Team", teamName: "Team Name"))
+	private let viewModel: PlayerListViewModel = PlayerListViewModel(team: Team(id: 1, name: "Team", teamName: "Team Name"))
 	private lazy var dataSource: PlayerListDataSource = PlayerListDataSource(delegate: self)
 	private let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 	
@@ -29,6 +29,7 @@ class PlayerListViewController: UIViewController {
 		
 		setupTableView()
 		setupMenuView()
+		viewModel.bind(to: self)
 	}
 	
 	
@@ -83,7 +84,7 @@ extension PlayerListViewController: PlayerListDataSourceDelegate {
 	/// Presents the DetailViewController and injects the Player object that was selected
 	/// - Parameter player: The Player object to display in the detail view
 	func didSelectPlayer(_ player: Player) {
-		print("Selected player: \(player.name)")
+		print("Selected player: \(player.person.fullName)")
 		// present player detail view and inject player object into the VC
 	}
 }
@@ -93,10 +94,21 @@ extension PlayerListViewController: MenuViewControllerDelegate {
 	func didSelectTeam(team: Team) {
 		
 		print("selected team: \(team.name)")
+		viewModel.team = team
 		// fetch request team and players
+		viewModel.fetchPlayers()
+
+	}
+}
+
+extension PlayerListViewController: PlayerListViewModelDelegate {
+	func didFetchPlayers(players: [Player]) {
 		// update nav bar title to new team
-		navigationItem.title = team.name
-		// reload tableView with the information
+		navigationItem.title = viewModel.team.name
+		dataSource.data = players
+		
 		tableView.reloadData()
 	}
+	
+	
 }

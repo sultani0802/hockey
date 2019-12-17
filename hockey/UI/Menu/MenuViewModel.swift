@@ -28,12 +28,12 @@ class MenuViewModel {
 		service.fetchTeams(completion: { [weak self] (result) in
 			switch result {
 				case .success(let menuResponse):
-					let teams = menuResponse.teams
+					var teams = menuResponse.teams
+					teams.sort(by: {$0.name < $1.name})
 					self?.delegate?.didFetchTeams(teams)
 				case .failure:
 					print("failed to fetch teams")
 			}
-			
 		})
 	}
 }

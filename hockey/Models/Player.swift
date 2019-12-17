@@ -9,9 +9,17 @@
 import Foundation
 
 struct Player: Decodable {
-	var name: String
-	var number: Int
-	var position: String
+	var person: Person
+	var jerseyNumber: String
+	var position: Position
 	var imagePath: String?
 	var country: String?
+}
+
+struct Person: Decodable {
+	var fullName: String
+}
+
+struct Position: Decodable {
+	var abbreviation: String
 }

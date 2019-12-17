@@ -9,6 +9,7 @@
 import Foundation
 
 struct Team: Decodable {
+	var id: Int
 	var name: String
 	var teamName: String
 }

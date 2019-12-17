@@ -28,6 +28,7 @@
 		0CE7EA3223A6796100B33EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7EA3023A6796100B33EB6 /* LaunchScreen.storyboard */; };
 		0CF1D2F923A89E5000A3299A /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF1D2F723A89E5000A3299A /* MenuCell.swift */; };
 		0CF1D2FA23A89E5000A3299A /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CF1D2F823A89E5000A3299A /* MenuCell.xib */; };
+		0CF1D2FC23A8A30500A3299A /* PlayerListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF1D2FB23A8A30500A3299A /* PlayerListService.swift */; };
 		BAA1574AF26138F4E9B81610 /* libPods-hockey.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0009AA5127087C7BFB34BB56 /* libPods-hockey.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		0CE7EA3323A6796100B33EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CF1D2F723A89E5000A3299A /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		0CF1D2F823A89E5000A3299A /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		0CF1D2FB23A8A30500A3299A /* PlayerListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListService.swift; sourceTree = "<group>"; };
 		7484D441774820992A8395A6 /* Pods-hockey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hockey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hockey/Pods-hockey.debug.xcconfig"; sourceTree = "<group>"; };
 		90AF09BB95C72E634508301D /* Pods-hockey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hockey.release.xcconfig"; path = "Pods/Target Support Files/Pods-hockey/Pods-hockey.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 				0CE7EA2923A6795F00B33EB6 /* PlayerListViewController.swift */,
 				0C0531CD23A67ECC00D299F0 /* PlayerListViewModel.swift */,
 				0C0531D423A6DB7B00D299F0 /* PlayerListDataSource.swift */,
+				0CF1D2FB23A8A30500A3299A /* PlayerListService.swift */,
 				0C0531CC23A67E9E00D299F0 /* Cell */,
 			);
 			path = PlayerList;
@@ -115,8 +118,8 @@
 			children = (
 				0C0531DA23A855B300D299F0 /* MenuViewController.swift */,
 				0CD89D3623A879C200FA9F5E /* MenuViewModel.swift */,
-				0CD89D3423A8787500FA9F5E /* MenuService.swift */,
 				0C0531DC23A856B500D299F0 /* MenuDataSource.swift */,
+				0CD89D3423A8787500FA9F5E /* MenuService.swift */,
 				0CF1D2F623A89E3600A3299A /* Cell */,
 			);
 			path = Menu;
@@ -293,6 +296,7 @@
 			files = (
 				0C0531CA23A67E9A00D299F0 /* PlayerListCell.swift in Sources */,
 				0C0531DD23A856B500D299F0 /* MenuDataSource.swift in Sources */,
+				0CF1D2FC23A8A30500A3299A /* PlayerListService.swift in Sources */,
 				0CE7EA2A23A6795F00B33EB6 /* PlayerListViewController.swift in Sources */,
 				0CD89D3723A879C200FA9F5E /* MenuViewModel.swift in Sources */,
 				0CE7EA2623A6795F00B33EB6 /* AppDelegate.swift in Sources */,
