@@ -1,5 +1,5 @@
 //
-//  Country.swift
+//  PlayerDetail.swift
 //  hockey
 //
 //  Created by Haamed Sultani on Dec/1/19.
@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Country: Decodable {
-	var name: String
-	var flag: String
+struct PlayerDetail: Decodable {
+	var fullName: String
+	var primaryNumber: String
+	var birthCountry: String
 }

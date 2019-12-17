@@ -10,6 +10,7 @@ import Foundation
 
 protocol PlayerListViewModelDelegate: class {
 	func didFetchPlayers(players: [Player])
+	func didFetchPlayerDetails(playerDetail: PlayerDetail)
 }
 
 class PlayerListViewModel {
@@ -36,10 +37,26 @@ class PlayerListViewModel {
 				case .success(let playerListResponse):
 					let players = playerListResponse.roster
 					self?.delegate?.didFetchPlayers(players: players)
-					
+				
 				case .failure:
 					print("failed to fetch players")
 			}
+		}
+	}
+	
+	func fetchPlayerDetails(player: Player) {
+		let id = String(player.person.id)
+		
+		service.fetchPlayerDetail(for: id) { [weak self] (result) in
+			switch result {
+				case .success(let response):
+					let playerDetail = response.people[0]
+					self?.delegate?.didFetchPlayerDetails(playerDetail: playerDetail)
+				
+				case .failure:
+					print("failed to fetch player detail")
+			}
+			
 		}
 	}
 }

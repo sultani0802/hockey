@@ -85,12 +85,8 @@ extension PlayerListViewController: PlayerListDataSourceDelegate {
 	/// Presents the DetailViewController and injects the Player object that was selected
 	/// - Parameter player: The Player object to display in the detail view
 	func didSelectPlayer(_ player: Player) {
-		// present player detail view and inject player object into the VC
-		guard let vc = storyBoard.instantiateViewController(identifier: "PlayerDetailViewController") as? PlayerDetailViewController else {
-			return
-		}
-		
-		navigationController?.pushViewController(vc, animated: true)
+		// fetch Player details
+		viewModel.fetchPlayerDetails(player: player)
 	}
 }
 
@@ -121,5 +117,14 @@ extension PlayerListViewController: PlayerListViewModelDelegate {
 		tableView.reloadData()
 	}
 	
-	
+	func didFetchPlayerDetails(playerDetail: PlayerDetail) {
+		// present player detail view and inject player object into the VC
+		guard let vc = storyBoard.instantiateViewController(identifier: "PlayerDetailViewController") as? PlayerDetailViewController else {
+			return
+		}
+		
+		// Inject model into PlayerDetailViewController and present 
+		vc.player = playerDetail
+		navigationController?.pushViewController(vc, animated: true)
+	}
 }
