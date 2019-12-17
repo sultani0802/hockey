@@ -18,6 +18,7 @@ struct Player: Decodable {
 
 struct Person: Decodable {
 	var fullName: String
+	var link: String
 }
 
 struct Position: Decodable {

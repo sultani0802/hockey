@@ -85,8 +85,12 @@ extension PlayerListViewController: PlayerListDataSourceDelegate {
 	/// Presents the DetailViewController and injects the Player object that was selected
 	/// - Parameter player: The Player object to display in the detail view
 	func didSelectPlayer(_ player: Player) {
-		print("Selected player: \(player.person.fullName)")
 		// present player detail view and inject player object into the VC
+		guard let vc = storyBoard.instantiateViewController(identifier: "PlayerDetailViewController") as? PlayerDetailViewController else {
+			return
+		}
+		
+		navigationController?.pushViewController(vc, animated: true)
 	}
 }
 

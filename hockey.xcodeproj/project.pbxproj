@@ -29,6 +29,8 @@
 		0CF1D2F923A89E5000A3299A /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF1D2F723A89E5000A3299A /* MenuCell.swift */; };
 		0CF1D2FA23A89E5000A3299A /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CF1D2F823A89E5000A3299A /* MenuCell.xib */; };
 		0CF1D2FC23A8A30500A3299A /* PlayerListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF1D2FB23A8A30500A3299A /* PlayerListService.swift */; };
+		0CF1D2FE23A944B200A3299A /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF1D2FD23A944B200A3299A /* Country.swift */; };
+		0CF1D30123A9466300A3299A /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF1D30023A9466300A3299A /* PlayerDetailViewController.swift */; };
 		BAA1574AF26138F4E9B81610 /* libPods-hockey.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0009AA5127087C7BFB34BB56 /* libPods-hockey.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		0CF1D2F723A89E5000A3299A /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		0CF1D2F823A89E5000A3299A /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		0CF1D2FB23A8A30500A3299A /* PlayerListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListService.swift; sourceTree = "<group>"; };
+		0CF1D2FD23A944B200A3299A /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		0CF1D30023A9466300A3299A /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 		7484D441774820992A8395A6 /* Pods-hockey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hockey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hockey/Pods-hockey.debug.xcconfig"; sourceTree = "<group>"; };
 		90AF09BB95C72E634508301D /* Pods-hockey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hockey.release.xcconfig"; path = "Pods/Target Support Files/Pods-hockey/Pods-hockey.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +104,7 @@
 			children = (
 				0C0531D123A6D44F00D299F0 /* Player.swift */,
 				0C0531D623A84C6700D299F0 /* Team.swift */,
+				0CF1D2FD23A944B200A3299A /* Country.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 		0C0531D823A8510200D299F0 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0CF1D2FF23A9464700A3299A /* DetailView */,
 				0C0531D923A8510E00D299F0 /* Menu */,
 				0C0531C723A67E5D00D299F0 /* PlayerList */,
 			);
@@ -176,6 +182,14 @@
 				0CF1D2F823A89E5000A3299A /* MenuCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		0CF1D2FF23A9464700A3299A /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				0CF1D30023A9466300A3299A /* PlayerDetailViewController.swift */,
+			);
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 		34E479D58C045580705271DF /* Frameworks */ = {
@@ -297,6 +311,7 @@
 				0C0531CA23A67E9A00D299F0 /* PlayerListCell.swift in Sources */,
 				0C0531DD23A856B500D299F0 /* MenuDataSource.swift in Sources */,
 				0CF1D2FC23A8A30500A3299A /* PlayerListService.swift in Sources */,
+				0CF1D30123A9466300A3299A /* PlayerDetailViewController.swift in Sources */,
 				0CE7EA2A23A6795F00B33EB6 /* PlayerListViewController.swift in Sources */,
 				0CD89D3723A879C200FA9F5E /* MenuViewModel.swift in Sources */,
 				0CE7EA2623A6795F00B33EB6 /* AppDelegate.swift in Sources */,
@@ -304,6 +319,7 @@
 				0CD89D2F23A8771900FA9F5E /* APIClient.swift in Sources */,
 				0CD89D3123A8773C00FA9F5E /* Result.swift in Sources */,
 				0CD89D3323A8775200FA9F5E /* Constants.swift in Sources */,
+				0CF1D2FE23A944B200A3299A /* Country.swift in Sources */,
 				0C0531DB23A855B300D299F0 /* MenuViewController.swift in Sources */,
 				0C0531D723A84C6700D299F0 /* Team.swift in Sources */,
 				0C0531D223A6D44F00D299F0 /* Player.swift in Sources */,

@@ -10,6 +10,7 @@ import Foundation
 
 enum Constants {
 	static let baseURL = "https://statsapi.web.nhl.com/api/v1"
+	static let flagBaseURL = "https://restcountries.eu/rest/v2/alpha"
 }
 
 enum Endpoints {
