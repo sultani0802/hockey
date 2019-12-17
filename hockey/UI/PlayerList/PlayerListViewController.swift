@@ -18,7 +18,7 @@ class PlayerListViewController: UIViewController {
 	
 	
 	// MARK: - Properties
-	private let viewModel: PlayerListViewModel = PlayerListViewModel(team: Team(name: "Select a team"))
+	private let viewModel: PlayerListViewModel = PlayerListViewModel(team: Team(name: "Team", teamName: "Team Name"))
 	private lazy var dataSource: PlayerListDataSource = PlayerListDataSource(delegate: self)
 	private let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 	

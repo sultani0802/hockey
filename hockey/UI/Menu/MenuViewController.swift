@@ -40,6 +40,7 @@ class MenuViewController: UIViewController {
 	// MARK: - Private
 	/// Sets the tableView datasource and delegate
 	private func setupTableView() {
+		tableView.register(UINib(nibName: "MenuCell", bundle: nil), forCellReuseIdentifier: "MenuCell")
 		tableView.dataSource = dataSource
 		tableView.delegate = dataSource
 	}

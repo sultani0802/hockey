@@ -16,13 +16,6 @@ class MenuDataSource: NSObject {
 	var data: [Team] = []
 	
 	weak var delegate: MenuDataSourceDelegate?
-	
-	override init() {
-		data.append(Team(name: "team 1"))
-		data.append(Team(name: "team 2"))
-		data.append(Team(name: "team 3"))
-		data.append(Team(name: "team 4"))
-	}
 }
 
 extension MenuDataSource: UITableViewDataSource {
@@ -33,10 +26,13 @@ extension MenuDataSource: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let team = self.data[indexPath.row]
 		
-		let cell = UITableViewCell()
-		cell.textLabel?.numberOfLines = 0
-		cell.textLabel?.text = team.name
-//		cell.imageView?.image = UIImage(named: indexPath.row == 0 ? "star-icon" : "movie-reel-icon")
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as? MenuCell else {
+			return UITableViewCell()
+		}
+		
+		cell.teamLogoImageView.image = UIImage(named: team.teamName.lowercased())
+		cell.teamNameLabel?.text = team.name
+		
 		return cell
 	}
 }
