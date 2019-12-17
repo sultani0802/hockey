@@ -16,7 +16,4 @@ class PlayerListViewModel {
 	init(team: Team) {
 		self.team = team
 	}
-	
-	
-	
 }
