@@ -15,6 +15,11 @@
 		0C0531D723A84C6700D299F0 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0531D623A84C6700D299F0 /* Team.swift */; };
 		0C0531DB23A855B300D299F0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0531DA23A855B300D299F0 /* MenuViewController.swift */; };
 		0C0531DD23A856B500D299F0 /* MenuDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0531DC23A856B500D299F0 /* MenuDataSource.swift */; };
+		0CD89D2F23A8771900FA9F5E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D2E23A8771900FA9F5E /* APIClient.swift */; };
+		0CD89D3123A8773C00FA9F5E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D3023A8773C00FA9F5E /* Result.swift */; };
+		0CD89D3323A8775200FA9F5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D3223A8775200FA9F5E /* Constants.swift */; };
+		0CD89D3523A8787500FA9F5E /* MenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D3423A8787500FA9F5E /* MenuService.swift */; };
+		0CD89D3723A879C200FA9F5E /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D3623A879C200FA9F5E /* MenuViewModel.swift */; };
 		0CE7EA2623A6795F00B33EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2523A6795F00B33EB6 /* AppDelegate.swift */; };
 		0CE7EA2823A6795F00B33EB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2723A6795F00B33EB6 /* SceneDelegate.swift */; };
 		0CE7EA2A23A6795F00B33EB6 /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7EA2923A6795F00B33EB6 /* PlayerListViewController.swift */; };
@@ -34,6 +39,11 @@
 		0C0531D623A84C6700D299F0 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		0C0531DA23A855B300D299F0 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		0C0531DC23A856B500D299F0 /* MenuDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDataSource.swift; sourceTree = "<group>"; };
+		0CD89D2E23A8771900FA9F5E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		0CD89D3023A8773C00FA9F5E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		0CD89D3223A8775200FA9F5E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0CD89D3423A8787500FA9F5E /* MenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuService.swift; sourceTree = "<group>"; };
+		0CD89D3623A879C200FA9F5E /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		0CE7EA2223A6795F00B33EB6 /* hockey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hockey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE7EA2523A6795F00B33EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CE7EA2723A6795F00B33EB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,9 +110,21 @@
 			isa = PBXGroup;
 			children = (
 				0C0531DA23A855B300D299F0 /* MenuViewController.swift */,
+				0CD89D3623A879C200FA9F5E /* MenuViewModel.swift */,
+				0CD89D3423A8787500FA9F5E /* MenuService.swift */,
 				0C0531DC23A856B500D299F0 /* MenuDataSource.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		0CD89D2D23A8770300FA9F5E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0CD89D3223A8775200FA9F5E /* Constants.swift */,
+				0CD89D3023A8773C00FA9F5E /* Result.swift */,
+				0CD89D2E23A8771900FA9F5E /* APIClient.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		0CE7EA1923A6795F00B33EB6 = {
@@ -131,6 +153,7 @@
 				0CE7EA2B23A6795F00B33EB6 /* Main.storyboard */,
 				0C0531D323A6D45200D299F0 /* Models */,
 				0C0531D823A8510200D299F0 /* UI */,
+				0CD89D2D23A8770300FA9F5E /* Util */,
 				0CE7EA2E23A6796100B33EB6 /* Assets.xcassets */,
 				0CE7EA3023A6796100B33EB6 /* LaunchScreen.storyboard */,
 				0CE7EA3323A6796100B33EB6 /* Info.plist */,
@@ -256,12 +279,17 @@
 				0C0531CA23A67E9A00D299F0 /* PlayerListCell.swift in Sources */,
 				0C0531DD23A856B500D299F0 /* MenuDataSource.swift in Sources */,
 				0CE7EA2A23A6795F00B33EB6 /* PlayerListViewController.swift in Sources */,
+				0CD89D3723A879C200FA9F5E /* MenuViewModel.swift in Sources */,
 				0CE7EA2623A6795F00B33EB6 /* AppDelegate.swift in Sources */,
 				0CE7EA2823A6795F00B33EB6 /* SceneDelegate.swift in Sources */,
+				0CD89D2F23A8771900FA9F5E /* APIClient.swift in Sources */,
+				0CD89D3123A8773C00FA9F5E /* Result.swift in Sources */,
+				0CD89D3323A8775200FA9F5E /* Constants.swift in Sources */,
 				0C0531DB23A855B300D299F0 /* MenuViewController.swift in Sources */,
 				0C0531D723A84C6700D299F0 /* Team.swift in Sources */,
 				0C0531D223A6D44F00D299F0 /* Player.swift in Sources */,
 				0C0531D523A6DB7B00D299F0 /* PlayerListDataSource.swift in Sources */,
+				0CD89D3523A8787500FA9F5E /* MenuService.swift in Sources */,
 				0C0531CE23A67ECC00D299F0 /* PlayerListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

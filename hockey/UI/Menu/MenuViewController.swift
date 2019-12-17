@@ -17,6 +17,7 @@ class MenuViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	
 	// MARK: - Properties
+	private let viewModel = MenuViewModel()
 	private lazy var dataSource : MenuDataSource = MenuDataSource()
 	weak var delegate : MenuViewControllerDelegate?
 	
@@ -24,6 +25,8 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
 
 		setupTableView()
+		viewModel.bind(to: self)
+		viewModel.fetchTeams()
     }
 	
 	// MARK: - Public
@@ -43,6 +46,12 @@ class MenuViewController: UIViewController {
 
 }
 
+extension MenuViewController: MenuViewModelDelegate {
+	func didFetchTeams(_ teams: [Team]) {
+		self.dataSource.data = teams
+		tableView.reloadData()
+	}
+}
 
 extension MenuViewController: MenuDataSourceDelegate {
 	
