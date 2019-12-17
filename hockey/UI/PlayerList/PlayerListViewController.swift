@@ -27,6 +27,7 @@ class PlayerListViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		activityIndicator.isHidden = true
 		setupTableView()
 		setupMenuView()
 		viewModel.bind(to: self)
@@ -92,21 +93,27 @@ extension PlayerListViewController: PlayerListDataSourceDelegate {
 
 extension PlayerListViewController: MenuViewControllerDelegate {
 	func didSelectTeam(team: Team) {
+		// Show spinner
+		activityIndicator.isHidden = false
+		activityIndicator.startAnimating()
 		
-		print("selected team: \(team.name)")
 		viewModel.team = team
-		// fetch request team and players
+		// fetch team and players
 		viewModel.fetchPlayers()
-
 	}
 }
 
 extension PlayerListViewController: PlayerListViewModelDelegate {
 	func didFetchPlayers(players: [Player]) {
+		// Stop spinner
+		activityIndicator.stopAnimating()
+		activityIndicator.isHidden = true
+		
 		// update nav bar title to new team
 		navigationItem.title = viewModel.team.name
+		// Update model
 		dataSource.data = players
-		
+		// Update UI
 		tableView.reloadData()
 	}
 	

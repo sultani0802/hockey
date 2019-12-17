@@ -29,7 +29,6 @@ class PlayerListViewModel {
 	}
 	
 	func fetchPlayers() {
-		
 		let id = String(self.team.id)
 		
 		service.fetchPlayers(for: id) { [weak self] (result) in
@@ -37,7 +36,7 @@ class PlayerListViewModel {
 				case .success(let playerListResponse):
 					let players = playerListResponse.roster
 					self?.delegate?.didFetchPlayers(players: players)
-					print(players)
+					
 				case .failure:
 					print("failed to fetch players")
 			}
