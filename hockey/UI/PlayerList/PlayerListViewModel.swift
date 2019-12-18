@@ -29,6 +29,8 @@ class PlayerListViewModel {
 		self.delegate = delegate
 	}
 	
+	/// Fetch the players on a team
+	/// > Uses the Team instance to make API request
 	func fetchPlayers() {
 		let id = String(self.team.id)
 		
@@ -44,11 +46,14 @@ class PlayerListViewModel {
 		}
 	}
 	
+	/// Fetch more details about the player
+	/// - Parameter player: The Player object that we want more info on
 	func fetchPlayerDetails(player: Player) {
 		let id = String(player.person.id)
 		
 		service.fetchPlayerDetail(for: id) { [weak self] (result) in
 			switch result {
+				
 				case .success(let response):
 					let playerDetail = response.people[0]
 					self?.delegate?.didFetchPlayerDetails(playerDetail: playerDetail)

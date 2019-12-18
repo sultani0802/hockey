@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SwiftSVG
 
 class PlayerDetailViewController: UIViewController {
 
@@ -26,6 +27,9 @@ class PlayerDetailViewController: UIViewController {
 		fetchCountry()
     }
 	
+	deinit {
+		print("detail view deinitialized")
+	}
 	
 	// MARK: - Private
 	private func fetchCountry() {
@@ -44,12 +48,31 @@ class PlayerDetailViewController: UIViewController {
 		}
 	}
 	
+	/// Update the UI
+	/// - Parameter country: Coutry object that will populate the view
 	private func render(_ country: CountryResponseObject) {
-		guard let url = URL(string: Constants.countryBaseURL + "/\(country.flag)") else {
+		// Set the text
+		self.countryLabel.text = country.name
+
+		// Set the flag
+		guard let url = URL(string: country.flag) else {
 			return
 		}
 		
-		self.countryLabel.text = country.name
-		self.flagImageView.kf.setImage(with: url)
+		// Create uiview containing the flag from the API
+		let flag = UIView(SVGURL: url) { [weak self] (svgLayer) in
+			svgLayer.resizeToFit((self?.flagImageView.bounds)!)
+		}
+		
+		flag.translatesAutoresizingMaskIntoConstraints = false
+		self.view.addSubview(flag)
+		
+		NSLayoutConstraint.activate([
+			flag.safeAreaLayoutGuide.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
+			flag.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+			flag.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+			
+			countryLabel.topAnchor.constraint(equalTo: flag.bottomAnchor, constant: 20)
+		])
 	}
 }

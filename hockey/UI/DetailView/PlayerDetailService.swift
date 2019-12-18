@@ -28,6 +28,10 @@ class PlayerDetailService: APIClient {
 
 
 extension PlayerDetailService: PlayerDetailServiceProtocol {
+	
+	/// Fetch country details from API
+	/// - Parameters:
+	///   - country: Country code that will be sent to the API. Accepts alpha2code and alpha3code.
 	func fetchCountry(for country: String, completion: @escaping (Result<CountryResponseObject>) -> Void) {
 		guard let url = URL(string: Constants.countryBaseURL + "/\(country)") else {
 			completion(.failure)

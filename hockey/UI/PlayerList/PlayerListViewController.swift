@@ -47,11 +47,10 @@ class PlayerListViewController: UIViewController {
 			return
 		}
 		
-		// Set the dataSource delegate to itself
-		menuView.bindDataSource(to: menuView)
-		// Set self to delegate that responds to team selection in Side Menu
+		// Updates UI when a team is selected in the side menu
 		menuView.delegate = self
 		
+		// Init the side menu
 		let leftMenu = UISideMenuNavigationController(rootViewController: menuView)
 		leftMenu.navigationBar.isHidden = true
 		
@@ -61,6 +60,7 @@ class PlayerListViewController: UIViewController {
 		SideMenuManager.default.menuFadeStatusBar = false
 		SideMenuManager.default.menuAnimationFadeStrength = 0.3
 		
+		// Configure the gestures
 		if let navigationController = navigationController {
 			SideMenuManager.default.menuAddPanGestureToPresent(toView: navigationController.navigationBar)
 			SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: navigationController.view)
@@ -68,6 +68,7 @@ class PlayerListViewController: UIViewController {
 	}
 	
 	// MARK: - UI Actions
+	/// Present the side menu
 	@IBAction func teamsPressed(_ sender: Any) {
 		guard let menuView = SideMenuManager.default.menuLeftNavigationController else {
 			return
@@ -92,6 +93,9 @@ extension PlayerListViewController: PlayerListDataSourceDelegate {
 
 
 extension PlayerListViewController: MenuViewControllerDelegate {
+	
+	/// Called when user selects a team
+	/// - Parameter team: The Team object we want players for
 	func didSelectTeam(team: Team) {
 		// Show spinner
 		activityIndicator.isHidden = false
@@ -104,6 +108,9 @@ extension PlayerListViewController: MenuViewControllerDelegate {
 }
 
 extension PlayerListViewController: PlayerListViewModelDelegate {
+	
+	/// Called after the networking layer received a successful response from the API
+	/// - Parameter players: Array of Player objects from a specific team
 	func didFetchPlayers(players: [Player]) {
 		// Stop spinner
 		activityIndicator.stopAnimating()
@@ -117,8 +124,9 @@ extension PlayerListViewController: PlayerListViewModelDelegate {
 		tableView.reloadData()
 	}
 	
+	/// Called after networking layer receives successful response from API
+	/// - Parameter playerDetail: The object that contains data that will be displayed in the DetailViewController
 	func didFetchPlayerDetails(playerDetail: PlayerDetail) {
-		// present player detail view and inject player object into the VC
 		guard let vc = storyBoard.instantiateViewController(identifier: "PlayerDetailViewController") as? PlayerDetailViewController else {
 			return
 		}

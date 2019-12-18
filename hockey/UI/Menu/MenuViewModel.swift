@@ -24,13 +24,17 @@ class MenuViewModel {
 		self.delegate = delegate
 	}
 	
+	/// Fetch the teams from the API
 	func fetchTeams() {
 		service.fetchTeams(completion: { [weak self] (result) in
 			switch result {
+
 				case .success(let menuResponse):
+					// Get the response, sort it, and send it to the UI via delegate
 					var teams = menuResponse.teams
 					teams.sort(by: {$0.name < $1.name})
 					self?.delegate?.didFetchTeams(teams)
+				
 				case .failure:
 					print("failed to fetch teams")
 			}

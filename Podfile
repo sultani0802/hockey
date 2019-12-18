@@ -5,5 +5,6 @@ target 'hockey' do
 
     pod 'Kingfisher', '= 4.10.1'
     pod 'SideMenu', '= 5.0.1'
+    pod 'SwiftSVG', '~> 2.0'
 
 end

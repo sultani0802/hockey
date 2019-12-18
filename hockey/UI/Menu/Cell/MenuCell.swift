@@ -18,5 +18,4 @@ class MenuCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
 }

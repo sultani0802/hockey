@@ -23,18 +23,13 @@ class MenuViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
 		setupTableView()
+		// Bind to MenuViewModel protocol in order to perform UI updates
 		viewModel.bind(to: self)
+		// Fetch the hockey teams from API
 		viewModel.fetchTeams()
     }
-	
-	// MARK: - Public
-	/// Binds self to dataSource delegate
-	/// - Parameter delegate: The view controller that conforms to MenuDataSourceDelegate
-	func bindDataSource(to delegate: MenuDataSourceDelegate) {
-		dataSource.delegate = delegate
-	}
 	
 	
 	// MARK: - Private
@@ -43,11 +38,14 @@ class MenuViewController: UIViewController {
 		tableView.register(UINib(nibName: "MenuCell", bundle: nil), forCellReuseIdentifier: "MenuCell")
 		tableView.dataSource = dataSource
 		tableView.delegate = dataSource
+		dataSource.delegate = self
 	}
-
 }
 
 extension MenuViewController: MenuViewModelDelegate {
+	/// Updates the datasource with the data received from the API call
+	/// > Called by MenuViewModel after successful response from API
+	/// - Parameter teams: An array of the Team objects that will be displayed in the UI
 	func didFetchTeams(_ teams: [Team]) {
 		self.dataSource.data = teams
 		tableView.reloadData()
@@ -57,7 +55,7 @@ extension MenuViewController: MenuViewModelDelegate {
 extension MenuViewController: MenuDataSourceDelegate {
 	
 	/// Tell PlayerListViewController that a team was selected and the Menu is hidden now
-	/// - Parameter team: The Team object that will populate PlayerListViewController's tableView
+	/// - Parameter team: The Team object that will populate PlayerListViewController's tableView UI
 	func didSelectTeam(team: Team) {
 		dismiss(animated: true) { [weak self] in
 			self?.delegate?.didSelectTeam(team: team)

@@ -19,27 +19,27 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTd-q6-osa">
                         <rect key="frame" x="10" y="10" width="300" height="64"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wFj-xK-Sn4">
-                                <rect key="frame" x="4" y="10" width="54" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="adt-GE-sJN"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHH-Ca-pwO">
-                                <rect key="frame" x="62" y="10" width="29" height="44"/>
+                                <rect key="frame" x="4" y="10" width="30" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="01f-Bi-qc1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="RW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMk-f4-HMT">
+                                <rect key="frame" x="38" y="10" width="40" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="gEJ-qq-rc6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="747" text="DUSTIN BROWN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWA-QN-vMn">
-                                <rect key="frame" x="139" y="10" width="153" height="44"/>
+                                <rect key="frame" x="82" y="10" width="210" height="44"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="RW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMk-f4-HMT">
-                                <rect key="frame" x="95" y="10" width="40" height="44"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -48,18 +48,15 @@
                         <constraints>
                             <constraint firstItem="KMk-f4-HMT" firstAttribute="leading" secondItem="hHH-Ca-pwO" secondAttribute="trailing" constant="4" id="0gg-PB-iQT"/>
                             <constraint firstAttribute="bottom" secondItem="KMk-f4-HMT" secondAttribute="bottom" constant="10" id="7UW-I6-JZw"/>
-                            <constraint firstItem="hHH-Ca-pwO" firstAttribute="leading" secondItem="wFj-xK-Sn4" secondAttribute="trailing" constant="4" id="EfJ-RH-3Ou"/>
                             <constraint firstItem="oWA-QN-vMn" firstAttribute="top" secondItem="qTd-q6-osa" secondAttribute="top" constant="10" id="H7I-bX-eFQ"/>
+                            <constraint firstItem="hHH-Ca-pwO" firstAttribute="leading" secondItem="qTd-q6-osa" secondAttribute="leading" constant="4" id="LGe-B3-11A"/>
                             <constraint firstItem="hHH-Ca-pwO" firstAttribute="top" secondItem="qTd-q6-osa" secondAttribute="top" constant="10" id="Uww-9g-p8l"/>
-                            <constraint firstItem="wFj-xK-Sn4" firstAttribute="top" secondItem="qTd-q6-osa" secondAttribute="top" constant="10" id="XPw-rn-AWN"/>
                             <constraint firstItem="oWA-QN-vMn" firstAttribute="leading" secondItem="KMk-f4-HMT" secondAttribute="trailing" constant="4" id="Y06-o1-Gq1"/>
                             <constraint firstAttribute="bottom" secondItem="hHH-Ca-pwO" secondAttribute="bottom" constant="10" id="bYq-hx-VqN"/>
-                            <constraint firstAttribute="bottom" secondItem="wFj-xK-Sn4" secondAttribute="bottom" constant="10" id="hzg-ch-Es1"/>
                             <constraint firstItem="KMk-f4-HMT" firstAttribute="top" secondItem="qTd-q6-osa" secondAttribute="top" constant="10" id="iNd-Tf-ur2"/>
                             <constraint firstAttribute="bottom" secondItem="oWA-QN-vMn" secondAttribute="bottom" constant="10" id="jEC-bv-CZA"/>
                             <constraint firstItem="KMk-f4-HMT" firstAttribute="leading" secondItem="hHH-Ca-pwO" secondAttribute="trailing" constant="4" id="nF8-W4-rpt"/>
                             <constraint firstItem="oWA-QN-vMn" firstAttribute="leading" secondItem="KMk-f4-HMT" secondAttribute="trailing" constant="4" id="qfF-Dw-kfp"/>
-                            <constraint firstItem="wFj-xK-Sn4" firstAttribute="leading" secondItem="qTd-q6-osa" secondAttribute="leading" constant="4" id="rI7-nO-KzG"/>
                             <constraint firstAttribute="trailing" secondItem="oWA-QN-vMn" secondAttribute="trailing" constant="8" id="zJQ-Ac-5iF"/>
                         </constraints>
                     </view>
@@ -76,7 +73,6 @@
                 <outlet property="mainView" destination="qTd-q6-osa" id="1QG-at-dcW"/>
                 <outlet property="playerNameLabel" destination="oWA-QN-vMn" id="BkT-28-aBQ"/>
                 <outlet property="playerNumberLabel" destination="hHH-Ca-pwO" id="BlZ-rW-76R"/>
-                <outlet property="playerPortraitImageView" destination="wFj-xK-Sn4" id="iox-wU-jNd"/>
                 <outlet property="playerPositionLabel" destination="KMk-f4-HMT" id="Cwx-jo-x8w"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="148.66071428571428"/>
