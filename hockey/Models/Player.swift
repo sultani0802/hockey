@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum Sorter: Int {
+	case name
+	case jersey
+}
+
 struct Player: Decodable {
 	var person: Person
 	var jerseyNumber: String

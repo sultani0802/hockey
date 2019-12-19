@@ -15,6 +15,7 @@ class PlayerListViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var teamsBarButtonItem: UIBarButtonItem!
+	@IBOutlet weak var sortBarButtonItem: UIBarButtonItem!
 	
 	
 	// MARK: - Properties
@@ -78,6 +79,12 @@ class PlayerListViewController: UIViewController {
 	}
 	
 	
+	@IBAction func sortPressed(_ sender: Any) {
+		print("sort button pressed")
+		
+		viewModel.sortPlayers(players: &self.dataSource.data, by: .jersey)
+		tableView.reloadData()
+	}
 }
 
 

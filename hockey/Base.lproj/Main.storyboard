@@ -70,9 +70,15 @@
                                 <action selector="teamsPressed:" destination="BYZ-38-t0r" id="HLI-Y7-pr9"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="hRt-NC-vVt">
+                            <connections>
+                                <action selector="sortPressed:" destination="BYZ-38-t0r" id="3NX-8F-cL4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="TSs-ZD-NaA" id="zJa-QR-t01"/>
+                        <outlet property="sortBarButtonItem" destination="hRt-NC-vVt" id="mRc-oY-Nhs"/>
                         <outlet property="tableView" destination="bFm-4U-Uj1" id="in2-Y8-0AJ"/>
                         <outlet property="teamsBarButtonItem" destination="nW5-PL-cBP" id="dK1-J6-ISK"/>
                     </connections>

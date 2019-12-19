@@ -1,4 +1,4 @@
-module Pods_hockey {
+framework module Pods_hockey {
   umbrella header "Pods-hockey-umbrella.h"
 
   export *

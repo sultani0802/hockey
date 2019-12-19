@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 import SwiftSVG
 
 class PlayerDetailViewController: UIViewController {
