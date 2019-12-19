@@ -12,9 +12,10 @@ protocol MenuViewControllerDelegate: class {
 	func didSelectTeam(team: Team)
 }
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, SpinnerProtocol, ErrorReceivableDelegate {
 
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 	// MARK: - Properties
 	private let viewModel = MenuViewModel()
@@ -27,10 +28,15 @@ class MenuViewController: UIViewController {
 		setupTableView()
 		// Bind to MenuViewModel protocol in order to perform UI updates
 		viewModel.bind(to: self)
-		// Fetch the hockey teams from API
-		viewModel.fetchTeams()
     }
 	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		activityIndicator.startAnimating()
+		// Fetch the hockey teams from API
+		viewModel.fetchTeams()
+	}
 	
 	// MARK: - Private
 	/// Sets the tableView datasource and delegate
@@ -47,6 +53,7 @@ extension MenuViewController: MenuViewModelDelegate {
 	/// > Called by MenuViewModel after successful response from API
 	/// - Parameter teams: An array of the Team objects that will be displayed in the UI
 	func didFetchTeams(_ teams: [Team]) {
+		self.activityIndicator.stopAnimating()
 		self.dataSource.data = teams
 		tableView.reloadData()
 	}

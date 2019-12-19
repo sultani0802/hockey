@@ -24,6 +24,8 @@
 		0C38FA5123AAFF9E004C0C02 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D2E23A8771900FA9F5E /* APIClient.swift */; };
 		0C38FA5223AAFFA6004C0C02 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D3023A8773C00FA9F5E /* Result.swift */; };
 		0C38FA5323AAFFBC004C0C02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D3223A8775200FA9F5E /* Constants.swift */; };
+		0C38FA5523AB09BE004C0C02 /* SpinnerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38FA5423AB09BE004C0C02 /* SpinnerProtocol.swift */; };
+		0C38FA5723AB0EC5004C0C02 /* ErrorReceivableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38FA5623AB0EC5004C0C02 /* ErrorReceivableDelegate.swift */; };
 		0C5D64DA23A960B400A99781 /* PlayerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5D64D923A960B400A99781 /* PlayerDetail.swift */; };
 		0C5D64DC23A968C400A99781 /* PlayerDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5D64DB23A968C400A99781 /* PlayerDetailService.swift */; };
 		0CD89D2F23A8771900FA9F5E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D2E23A8771900FA9F5E /* APIClient.swift */; };
@@ -69,6 +71,8 @@
 		0C38FA4223AAF929004C0C02 /* hockeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hockeyTests.swift; sourceTree = "<group>"; };
 		0C38FA4423AAF929004C0C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C38FA4A23AAFB6C004C0C02 /* libKingfisher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libKingfisher.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C38FA5423AB09BE004C0C02 /* SpinnerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerProtocol.swift; sourceTree = "<group>"; };
+		0C38FA5623AB0EC5004C0C02 /* ErrorReceivableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReceivableDelegate.swift; sourceTree = "<group>"; };
 		0C5D0E3523AACE90002CF5DD /* libKingfisher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libKingfisher.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C5D64D923A960B400A99781 /* PlayerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetail.swift; sourceTree = "<group>"; };
 		0C5D64DB23A968C400A99781 /* PlayerDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailService.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				0CD89D3223A8775200FA9F5E /* Constants.swift */,
 				0CD89D3023A8773C00FA9F5E /* Result.swift */,
 				0CD89D2E23A8771900FA9F5E /* APIClient.swift */,
+				0C38FA5423AB09BE004C0C02 /* SpinnerProtocol.swift */,
+				0C38FA5623AB0EC5004C0C02 /* ErrorReceivableDelegate.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -464,6 +470,7 @@
 				0CF1D2FC23A8A30500A3299A /* PlayerListService.swift in Sources */,
 				0C5D64DC23A968C400A99781 /* PlayerDetailService.swift in Sources */,
 				0CF1D30123A9466300A3299A /* PlayerDetailViewController.swift in Sources */,
+				0C38FA5723AB0EC5004C0C02 /* ErrorReceivableDelegate.swift in Sources */,
 				0CE7EA2A23A6795F00B33EB6 /* PlayerListViewController.swift in Sources */,
 				0CD89D3723A879C200FA9F5E /* MenuViewModel.swift in Sources */,
 				0CE7EA2623A6795F00B33EB6 /* AppDelegate.swift in Sources */,
@@ -479,6 +486,7 @@
 				0C0531D523A6DB7B00D299F0 /* PlayerListDataSource.swift in Sources */,
 				0CD89D3523A8787500FA9F5E /* MenuService.swift in Sources */,
 				0CF1D2F923A89E5000A3299A /* MenuCell.swift in Sources */,
+				0C38FA5523AB09BE004C0C02 /* SpinnerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

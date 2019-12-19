@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PlayerListViewModelDelegate: class {
+protocol PlayerListViewModelDelegate: ErrorReceivableDelegate {
 	func didFetchPlayers(players: [Player])
 	func didFetchPlayerDetails(playerDetail: PlayerDetail)
 }
@@ -62,7 +62,7 @@ class PlayerListViewModel {
 					self?.delegate?.didFetchPlayers(players: players)
 				
 				case .failure:
-					print("failed to fetch players")
+					self?.delegate?.didReceiveError("Could not fetch players")
 			}
 		}
 	}
@@ -80,7 +80,7 @@ class PlayerListViewModel {
 					self?.delegate?.didFetchPlayerDetails(playerDetail: playerDetail)
 				
 				case .failure:
-					print("failed to fetch player detail")
+					self?.delegate?.didReceiveError("Could not fetch player's info")
 			}
 			
 		}

@@ -9,7 +9,7 @@
 import UIKit
 import SideMenu
 
-class PlayerListViewController: UIViewController {
+class PlayerListViewController: UIViewController, SpinnerProtocol, ErrorReceivableDelegate {
 
 	// MARK: - UI Elements
 	@IBOutlet weak var tableView: UITableView!
@@ -28,7 +28,6 @@ class PlayerListViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		activityIndicator.isHidden = true
 		setupTableView()
 		setupMenuView()
 		viewModel.bind(to: self)
@@ -93,6 +92,7 @@ extension PlayerListViewController: PlayerListDataSourceDelegate {
 	/// Presents the DetailViewController and injects the Player object that was selected
 	/// - Parameter player: The Player object to display in the detail view
 	func didSelectPlayer(_ player: Player) {
+		activityIndicator.startAnimating()
 		// fetch Player details
 		viewModel.fetchPlayerDetails(player: player)
 	}
@@ -105,7 +105,6 @@ extension PlayerListViewController: MenuViewControllerDelegate {
 	/// - Parameter team: The Team object we want players for
 	func didSelectTeam(team: Team) {
 		// Show spinner
-		activityIndicator.isHidden = false
 		activityIndicator.startAnimating()
 		
 		viewModel.team = team
@@ -121,7 +120,6 @@ extension PlayerListViewController: PlayerListViewModelDelegate {
 	func didFetchPlayers(players: [Player]) {
 		// Stop spinner
 		activityIndicator.stopAnimating()
-		activityIndicator.isHidden = true
 		
 		// update nav bar title to new team
 		navigationItem.title = viewModel.team.name

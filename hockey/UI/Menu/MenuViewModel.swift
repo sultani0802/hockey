@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MenuViewModelDelegate: class {
+protocol MenuViewModelDelegate: ErrorReceivableDelegate {
 	func didFetchTeams(_ teams: [Team])
 }
 
@@ -36,7 +36,7 @@ class MenuViewModel {
 					self?.delegate?.didFetchTeams(teams)
 				
 				case .failure:
-					print("failed to fetch teams")
+					self?.delegate?.didReceiveError("Could not fetch teams")
 			}
 		})
 	}

@@ -9,12 +9,13 @@
 import UIKit
 import SwiftSVG
 
-class PlayerDetailViewController: UIViewController {
+class PlayerDetailViewController: UIViewController, SpinnerProtocol, ErrorReceivableDelegate {
 
 	// MARK: - UI Elements
 	
 	@IBOutlet weak var flagImageView: UIImageView!
 	@IBOutlet weak var countryLabel: UILabel!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 	
 	// MARK: - Properties
@@ -32,18 +33,21 @@ class PlayerDetailViewController: UIViewController {
 	
 	// MARK: - Private
 	private func fetchCountry() {
-		service.fetchCountry(for: self.player.birthCountry) { [weak self] (result) in
-			
-			switch result{
-				case .success(let country):
-					DispatchQueue.main.async {
-						self?.render(country)
-				}
+		activityIndicator.startAnimating()
+		
+		DispatchQueue.global().async { [weak self] in
+			self?.service.fetchCountry(for: (self?.player.birthCountry)!) { (result) in
 				
-				case .failure:
-					print("Failed to fetch country")
+				switch result{
+					case .success(let country):
+						DispatchQueue.main.async {
+							self?.render(country)
+					}
+					
+					case .failure:
+						self?.didReceiveError("Could not download flag")
+				}
 			}
-			
 		}
 	}
 	
@@ -67,7 +71,7 @@ class PlayerDetailViewController: UIViewController {
 		self.view.addSubview(flag)
 		
 		NSLayoutConstraint.activate([
-			flag.safeAreaLayoutGuide.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
+			NSLayoutConstraint(item: flag, attribute: .top, relatedBy: .equal, toItem: self.topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0),
 			flag.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
 			flag.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
 			
