@@ -57,7 +57,7 @@
                                 <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Filter by position" showsScopeBar="YES" id="yMH-Aq-iht">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 </searchBar>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="TSs-ZD-NaA">
