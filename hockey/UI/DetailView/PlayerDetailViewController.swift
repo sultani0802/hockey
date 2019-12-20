@@ -25,6 +25,8 @@ class PlayerDetailViewController: UIViewController, SpinnerProtocol, ErrorReceiv
     override func viewDidLoad() {
         super.viewDidLoad()
 		fetchCountry()
+		
+		navigationItem.title = player.fullName
     }
 	
 	deinit {

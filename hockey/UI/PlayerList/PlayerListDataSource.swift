@@ -13,6 +13,8 @@ protocol PlayerListDataSourceDelegate: class {
 }
 
 class PlayerListDataSource: NSObject {
+	var originalData: [Player] = []
+	var filteredData: [Player] = []
 	var data: [Player] = []
 	
 	private weak var delegate: PlayerListDataSourceDelegate?

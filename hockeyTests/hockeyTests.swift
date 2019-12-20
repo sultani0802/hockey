@@ -19,7 +19,7 @@ class hockeyTests: XCTestCase {
     }
 
 
-
+	
     func testJerseyNumberSorting() {
         // Given
 		var players: [Player] = [
@@ -66,5 +66,36 @@ class hockeyTests: XCTestCase {
 		// Then
 		let sortedNames: [String] = players.map({$0.person.fullName})
 		XCTAssertEqual(sortedNames, ["Apple", "IBM", "Microsoft", "Samsung", "Sony", "Wayne Gretzky", "Xerox"])
+	}
+	
+	
+	func testFiltering() {
+		// Given
+		var players: [Player] = [
+			Player(person: Person(fullName: "Microsoft", id: 1), jerseyNumber: "5", position: Position(abbreviation: "G"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Apple", id: 1), jerseyNumber: "32", position: Position(abbreviation: "RW"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "IBM", id: 1), jerseyNumber: "1", position: Position(abbreviation: "LW"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Samsung", id: 1), jerseyNumber: "19", position: Position(abbreviation: "C"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Xerox", id: 1), jerseyNumber: "2", position: Position(abbreviation: "D"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Second Microsoft", id: 1), jerseyNumber: "5", position: Position(abbreviation: "G"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Second Apple", id: 1), jerseyNumber: "32", position: Position(abbreviation: "D"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Second IBM", id: 1), jerseyNumber: "1", position: Position(abbreviation: "LW"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Second Samsung", id: 1), jerseyNumber: "19", position: Position(abbreviation: "C"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Third Xerox", id: 1), jerseyNumber: "2", position: Position(abbreviation: "D"), imagePath: "path", country: "Pangea")
+		]
+		
+		// When
+		let g = sut.filterPlayers(players: players, with: "G")
+		let d = sut.filterPlayers(players: players, with: "D")
+		let c = sut.filterPlayers(players: players, with: "c")
+		let z = sut.filterPlayers(players: players, with: "Z")
+		let rw = sut.filterPlayers(players: players, with: "rw")
+		
+		// Then
+		XCTAssertEqual(g.count, 2)
+		XCTAssertEqual(d.count, 3)
+		XCTAssertEqual(c.count, 2)
+		XCTAssertEqual(z.count, 0)
+		XCTAssertEqual(rw.count, 1)
 	}
 }

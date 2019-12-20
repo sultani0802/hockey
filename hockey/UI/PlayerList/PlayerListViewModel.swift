@@ -30,8 +30,6 @@ class PlayerListViewModel {
 	}
 	
 	func sortPlayers(players: inout [Player], by sortMethod: Sorter) {
-		let num : [Int] = players.map({Int($0.jerseyNumber)!})
-		
 		switch sortMethod {
 			case .name:
 				players.sort { (player1, player2) -> Bool in
@@ -39,16 +37,17 @@ class PlayerListViewModel {
 			}
 			
 			case .jersey:
-				print(players.map({$0.jerseyNumber}))
 				players.sort { (l, r) -> Bool in
 					let lInt = Int(l.jerseyNumber)
 					let rInt = Int(r.jerseyNumber)
 					return lInt! < rInt!
 				}
-				print(players.map({$0.jerseyNumber}))
 		}
 	}
 	
+	func filterPlayers(players: [Player], with filterString: String) -> [Player]{
+		return players.filter({$0.position.abbreviation.contains(filterString.uppercased())})
+	}
 	
 	/// Fetch the players on a team
 	/// > Uses the Team instance to make API request

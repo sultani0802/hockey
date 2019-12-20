@@ -16,6 +16,7 @@ class PlayerListViewController: UIViewController, SpinnerProtocol, ErrorReceivab
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var teamsBarButtonItem: UIBarButtonItem!
 	@IBOutlet weak var sortBarButtonItem: UIBarButtonItem!
+	@IBOutlet weak var searchBar: UISearchBar!
 	
 	
 	// MARK: - Properties
@@ -36,6 +37,9 @@ class PlayerListViewController: UIViewController, SpinnerProtocol, ErrorReceivab
 	
 	// MARK: - Private
 	private func setupTableView() {
+		searchBar.delegate = self
+		searchBar.returnKeyType = .done
+		
 		tableView.register(UINib(nibName: "PlayerListCell", bundle: nil), forCellReuseIdentifier: "PlayerListCell")
 		tableView.dataSource = dataSource
 		tableView.delegate = dataSource
@@ -79,10 +83,33 @@ class PlayerListViewController: UIViewController, SpinnerProtocol, ErrorReceivab
 	
 	
 	@IBAction func sortPressed(_ sender: Any) {
-		print("sort button pressed")
+		let alertController = UIAlertController(title: "", message: "Sort by", preferredStyle: .actionSheet)
 		
-		viewModel.sortPlayers(players: &self.dataSource.data, by: .jersey)
-		tableView.reloadData()
+		// Sort by "Name" action
+		alertController.addAction(UIAlertAction(title: "Name", style: .default, handler: {
+			[weak self] (alert) in
+			guard let self = self else {return}
+			
+			self.viewModel.sortPlayers(players: &self.dataSource.data, by: .name)
+			self.dataSource.originalData = self.dataSource.data
+			self.tableView.reloadData()
+		}))
+		
+		// Sort by "Jersey Number" action
+		alertController.addAction(UIAlertAction(title: "Jersey Number", style: .default, handler: {
+			[weak self] (alert) in
+			guard let self = self else {return}
+			
+			self.viewModel.sortPlayers(players: &self.dataSource.data, by: .jersey)
+			self.dataSource.originalData = self.dataSource.data
+			self.tableView.reloadData()
+		}))
+		
+		// Cancel action
+		alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+		
+		
+		self.present(alertController, animated: true, completion: nil)
 	}
 }
 
@@ -123,8 +150,11 @@ extension PlayerListViewController: PlayerListViewModelDelegate {
 		
 		// update nav bar title to new team
 		navigationItem.title = viewModel.team.name
+		
 		// Update model
 		dataSource.data = players
+		dataSource.originalData = players
+		dataSource.filteredData = []
 		// Update UI
 		tableView.reloadData()
 	}
@@ -136,8 +166,35 @@ extension PlayerListViewController: PlayerListViewModelDelegate {
 			return
 		}
 		
+		self.activityIndicator.stopAnimating()
 		// Inject model into PlayerDetailViewController and present 
 		vc.player = playerDetail
 		navigationController?.pushViewController(vc, animated: true)
 	}
 }
+
+
+
+extension PlayerListViewController: UISearchBarDelegate, UITextFieldDelegate {
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		// If the search bar is empty, display the original array of Players
+		guard !searchText.isEmpty else {
+			dataSource.filteredData = []
+			dataSource.data = dataSource.originalData
+			tableView.reloadData()
+			return
+		}
+		
+		// Filter the tableView based on the text entered
+		dataSource.filteredData = viewModel.filterPlayers(players: dataSource.originalData, with: searchText)
+		dataSource.data = dataSource.filteredData
+		tableView.reloadData()
+	}
+	
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		searchBar.resignFirstResponder()
+	}
+}
+
+
+

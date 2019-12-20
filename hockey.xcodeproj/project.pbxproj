@@ -28,6 +28,8 @@
 		0C38FA5723AB0EC5004C0C02 /* ErrorReceivableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38FA5623AB0EC5004C0C02 /* ErrorReceivableDelegate.swift */; };
 		0C5D64DA23A960B400A99781 /* PlayerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5D64D923A960B400A99781 /* PlayerDetail.swift */; };
 		0C5D64DC23A968C400A99781 /* PlayerDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5D64DB23A968C400A99781 /* PlayerDetailService.swift */; };
+		0CD7D30A23AC4CF900E461A2 /* ErrorReceivableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38FA5623AB0EC5004C0C02 /* ErrorReceivableDelegate.swift */; };
+		0CD7D30B23AC4D0500E461A2 /* SpinnerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38FA5423AB09BE004C0C02 /* SpinnerProtocol.swift */; };
 		0CD89D2F23A8771900FA9F5E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D2E23A8771900FA9F5E /* APIClient.swift */; };
 		0CD89D3123A8773C00FA9F5E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D3023A8773C00FA9F5E /* Result.swift */; };
 		0CD89D3323A8775200FA9F5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD89D3223A8775200FA9F5E /* Constants.swift */; };
@@ -458,6 +460,8 @@
 				0C38FA5223AAFFA6004C0C02 /* Result.swift in Sources */,
 				0C38FA4C23AAFC36004C0C02 /* PlayerListViewModel.swift in Sources */,
 				0C38FA5323AAFFBC004C0C02 /* Constants.swift in Sources */,
+				0CD7D30B23AC4D0500E461A2 /* SpinnerProtocol.swift in Sources */,
+				0CD7D30A23AC4CF900E461A2 /* ErrorReceivableDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
