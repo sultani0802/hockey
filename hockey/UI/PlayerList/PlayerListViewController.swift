@@ -198,6 +198,7 @@ extension PlayerListViewController: UISearchBarDelegate, UITextFieldDelegate {
 		tableView.reloadData()
 	}
 	
+	// Hide keyboard when user taps "done" key
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		searchBar.resignFirstResponder()
 	}

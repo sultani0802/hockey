@@ -13,8 +13,14 @@ protocol PlayerListDataSourceDelegate: class {
 }
 
 class PlayerListDataSource: NSObject {
+	
+	/// This array holds ALL of the players on the team and can be sorted
 	var originalData: [Player] = []
+	
+	/// This array holds ONLY the filtered players and can be sorted. It is set to an empty array when the search bar is empty
 	var filteredData: [Player] = []
+	
+	/// This is the array that is currently being displayed on the tableView. It is mutated to equal either originalData or filteredData.
 	var data: [Player] = []
 	
 	private weak var delegate: PlayerListDataSourceDelegate?

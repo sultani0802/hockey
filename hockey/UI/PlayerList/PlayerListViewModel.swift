@@ -33,11 +33,13 @@ class PlayerListViewModel {
 		var sortedPlayers = players
 		
 		switch sortMethod {
+			// Sort by name
 			case .name:
 				sortedPlayers.sort { (player1, player2) -> Bool in
 					player1.person.fullName < player2.person.fullName
 			}
 			
+			// Sort by jersey number
 			case .jersey:
 				sortedPlayers.sort { (l, r) -> Bool in
 					let lInt = Int(l.jerseyNumber)
@@ -49,6 +51,11 @@ class PlayerListViewModel {
 		return sortedPlayers
 	}
 	
+	
+	/// Filters through the given [Player] with a given string
+	/// - Parameters:
+	///   - players: List of players to filter
+	///   - filterString: The filter string
 	func filterPlayers(players: [Player], with filterString: String) -> [Player]{
 		return players.filter({$0.position.abbreviation.contains(filterString.uppercased())})
 	}
