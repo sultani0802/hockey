@@ -37,10 +37,10 @@ class hockeyTests: XCTestCase {
 		let unsortedJerseyNumbers: [Int] = players.map({Int($0.jerseyNumber)!})
 		XCTAssertEqual(unsortedJerseyNumbers, [5, 32, 1, 10, 19, 2, 1492])
 		
-		sut.sortPlayers(players: &players, by: .jersey)
+		let sortedPlayers = sut.sortPlayers(players: players, by: .jersey)
 		
 		// Then
-		let sortedJerseyNumbers: [Int] = players.map({Int($0.jerseyNumber)!})
+		let sortedJerseyNumbers: [Int] = sortedPlayers.map({Int($0.jerseyNumber)!})
 		XCTAssertEqual(sortedJerseyNumbers, [1, 2, 5, 10, 19, 32, 1492])
     }
 
@@ -61,10 +61,10 @@ class hockeyTests: XCTestCase {
 		let unsortedNames: [String] = players.map({$0.person.fullName})
 		XCTAssertEqual(unsortedNames, ["Microsoft", "Apple", "IBM", "Sony", "Samsung", "Xerox", "Wayne Gretzky"])
 		
-		sut.sortPlayers(players: &players, by: .name)
+		let sortedPlayers = sut.sortPlayers(players: players, by: .name)
 		
 		// Then
-		let sortedNames: [String] = players.map({$0.person.fullName})
+		let sortedNames: [String] = sortedPlayers.map({$0.person.fullName})
 		XCTAssertEqual(sortedNames, ["Apple", "IBM", "Microsoft", "Samsung", "Sony", "Wayne Gretzky", "Xerox"])
 	}
 	
@@ -97,5 +97,30 @@ class hockeyTests: XCTestCase {
 		XCTAssertEqual(c.count, 2)
 		XCTAssertEqual(z.count, 0)
 		XCTAssertEqual(rw.count, 1)
+	}
+	
+	func testSortingFiltered() {
+		// Given
+		var players: [Player] = [
+			Player(person: Person(fullName: "Microsoft", id: 1), jerseyNumber: "50", position: Position(abbreviation: "G"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Apple", id: 1), jerseyNumber: "8", position: Position(abbreviation: "RW"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "IBM", id: 1), jerseyNumber: "10", position: Position(abbreviation: "LW"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Samsung", id: 1), jerseyNumber: "15", position: Position(abbreviation: "C"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Xerox", id: 1), jerseyNumber: "27", position: Position(abbreviation: "D"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Second Microsoft", id: 1), jerseyNumber: "5", position: Position(abbreviation: "G"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Second Apple", id: 1), jerseyNumber: "32", position: Position(abbreviation: "D"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Second IBM", id: 1), jerseyNumber: "1", position: Position(abbreviation: "LW"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Second Samsung", id: 1), jerseyNumber: "19", position: Position(abbreviation: "C"), imagePath: "path", country: "Pangea"),
+			Player(person: Person(fullName: "Third Xerox", id: 1), jerseyNumber: "2", position: Position(abbreviation: "D"), imagePath: "path", country: "Pangea")
+		]
+		
+		
+		// When
+		let sortedPlayers = sut.sortPlayers(players: players, by: .jersey)
+		let filteredSortedPlayers = sut.filterPlayers(players: sortedPlayers, with: "C")
+		let jerseyNumbers = filteredSortedPlayers.map({Int($0.jerseyNumber)!})
+		
+		// Then
+		XCTAssertEqual(jerseyNumbers, [15, 19])
 	}
 }

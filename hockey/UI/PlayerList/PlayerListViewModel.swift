@@ -29,20 +29,24 @@ class PlayerListViewModel {
 		self.delegate = delegate
 	}
 	
-	func sortPlayers(players: inout [Player], by sortMethod: Sorter) {
+	func sortPlayers(players: [Player], by sortMethod: Sorter) -> [Player] {
+		var sortedPlayers = players
+		
 		switch sortMethod {
 			case .name:
-				players.sort { (player1, player2) -> Bool in
+				sortedPlayers.sort { (player1, player2) -> Bool in
 					player1.person.fullName < player2.person.fullName
 			}
 			
 			case .jersey:
-				players.sort { (l, r) -> Bool in
+				sortedPlayers.sort { (l, r) -> Bool in
 					let lInt = Int(l.jerseyNumber)
 					let rInt = Int(r.jerseyNumber)
 					return lInt! < rInt!
 				}
 		}
+		
+		return sortedPlayers
 	}
 	
 	func filterPlayers(players: [Player], with filterString: String) -> [Player]{

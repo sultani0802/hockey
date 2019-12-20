@@ -84,14 +84,18 @@ class PlayerListViewController: UIViewController, SpinnerProtocol, ErrorReceivab
 	
 	@IBAction func sortPressed(_ sender: Any) {
 		let alertController = UIAlertController(title: "", message: "Sort by", preferredStyle: .actionSheet)
+	
 		
 		// Sort by "Name" action
 		alertController.addAction(UIAlertAction(title: "Name", style: .default, handler: {
 			[weak self] (alert) in
 			guard let self = self else {return}
 			
-			self.viewModel.sortPlayers(players: &self.dataSource.data, by: .name)
-			self.dataSource.originalData = self.dataSource.data
+			// Sort both player arrays
+			self.dataSource.originalData = self.viewModel.sortPlayers(players: self.dataSource.originalData, by: .name)
+			self.dataSource.filteredData = self.viewModel.sortPlayers(players: self.dataSource.filteredData, by: .name)
+			// Display the filtered array if it isn't empty
+			self.dataSource.data = self.dataSource.filteredData.isEmpty ? self.dataSource.originalData : self.dataSource.filteredData
 			self.tableView.reloadData()
 		}))
 		
@@ -100,8 +104,11 @@ class PlayerListViewController: UIViewController, SpinnerProtocol, ErrorReceivab
 			[weak self] (alert) in
 			guard let self = self else {return}
 			
-			self.viewModel.sortPlayers(players: &self.dataSource.data, by: .jersey)
-			self.dataSource.originalData = self.dataSource.data
+			// Sort both player arrays
+			self.dataSource.originalData = self.viewModel.sortPlayers(players: self.dataSource.originalData, by: .jersey)
+			self.dataSource.filteredData = self.viewModel.sortPlayers(players: self.dataSource.filteredData, by: .jersey)
+			// Display the filtered array if it isn't empty
+			self.dataSource.data = self.dataSource.filteredData.isEmpty ? self.dataSource.originalData : self.dataSource.filteredData
 			self.tableView.reloadData()
 		}))
 		
